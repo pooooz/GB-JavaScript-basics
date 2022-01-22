@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо от пользователя получить число.
@@ -25,10 +27,25 @@
 
 Уточнение: пользователь всегда вводит корректное положительное число.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    let userInput = Number(prompt("Введите число:"));
+
+    while (isNaN(userInput) || userInput == '') {
+      userInput = Number(prompt("Указано неверное значение! Повторите ввод!\n" +
+        "Введите число:"));
+    }
+
+    let integerPart = Number.parseInt(userInput);
+
+    alert(
+      `В числе ${userInput} количество ` +
+      `сотен: ${Math.trunc(integerPart / 100) % 10 }, ` +
+      `десятков: ${Math.trunc(integerPart / 10) % 10}, ` +
+      `единиц: ${integerPart % 10}`
+    );
+  </script>
 </body>
+
 </html>
