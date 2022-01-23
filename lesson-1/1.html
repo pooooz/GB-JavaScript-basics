@@ -26,12 +26,14 @@
 
     let celsius = Number(prompt("Введите температуру в градусах Цельсия:"));
 
-    while (isNaN(celsius) || celsius == '') {
-      celsius = prompt("Указано неверное значение! Повторите ввод!\n" +
-        "Введите температуру в градусах Цельсия:");
+    while (Number(isNaN(celsius)) || celsius == '') {
+      celsius = Number(prompt("Указано неверное значение! Повторите ввод!\n" +
+        "Введите температуру в градусах Цельсия:"));
     }
 
-    alert(`Цельсий: ${celsius}, Фаренгейт: ${1.8 * celsius + 32}`);
+    let fahrenheit = 9 / 5 * celsius + 32;
+
+    alert(`Цельсий: ${celsius}, Фаренгейт: ${fahrenheit}`);
   </script>
 </body>
 
