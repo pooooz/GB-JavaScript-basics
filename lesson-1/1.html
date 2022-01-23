@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо пользователя попросить ввести температуру в градусах Цельсия,
@@ -19,10 +21,20 @@
 
 Уточнение: пользователь всегда вводит корректное число.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    let celsius = Number(prompt("Введите температуру в градусах Цельсия:"));
+
+    while (Number.isNaN(celsius) || celsius == '') {
+      celsius = Number(prompt("Указано неверное значение! Повторите ввод!\n" +
+        "Введите температуру в градусах Цельсия:"));
+    }
+
+    let fahrenheit = 9 / 5 * celsius + 32;
+
+    alert(`Цельсий: ${celsius}, Фаренгейт: ${fahrenheit}`);
+  </script>
 </body>
+
 </html>
