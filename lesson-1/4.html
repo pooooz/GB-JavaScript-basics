@@ -37,13 +37,16 @@
         "Введите число:"));
     }
 
-    let integerPart = Number.parseInt(userInput);
+    const integerPart = Number.parseInt(userInput);
+    const hundreds = Math.trunc(integerPart / 100) % 10;
+    const dozens = Math.trunc(integerPart / 10) % 10;
+    const ones = integerPart % 10;
 
     alert(
       `В числе ${userInput} количество ` +
-      `сотен: ${Math.trunc(integerPart / 100) % 10 }, ` +
-      `десятков: ${Math.trunc(integerPart / 10) % 10}, ` +
-      `единиц: ${integerPart % 10}`
+      `сотен: ${hundreds}, ` +
+      `десятков: ${dozens}, ` +
+      `единиц: ${ones}`
     );
   </script>
 </body>
