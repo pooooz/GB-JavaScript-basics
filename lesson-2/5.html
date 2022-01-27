@@ -34,7 +34,60 @@ Infinity делать не нужно, однако, в случае если б
   <script>
     "use strict";
 
-    // Здесь пишем решение, данный комментарий необходимо стереть.
+    function mathOperation(arg1, arg2, operation) {
+      switch (operation) {
+        case "+":
+          return sum(arg1, arg2);
+        case "-":
+          return diff(arg1, arg2);
+        case "*":
+          return multiply(arg1, arg2);
+        case "/":
+          return divide(arg1, arg2);
+        default:
+          return NaN;
+      }
+    }
+
+    /**
+     * Вычисляет результат сложения двух чисел.
+     * @param {number} a - Первое слагаемое.
+     * @param {number} b - Второе слагаемое.
+     * @returns {number} Результат сложения.
+     */
+    function sum(a, b) {
+      return a + b;
+    }
+
+    /**
+     * Вычисляет модуль разности аргументов.
+     * @param {number} a - Первый аргумент.
+     * @param {number} b - Второй аргумент.
+     * @returns {number} Результат вычитания.
+     */
+    function diff(a, b) {
+      return a > b ? a - b : b - a;
+    }
+
+    /**
+     * Вычисляет результат произведения переданных аргументов.
+     * @param {number} a - Первый аргумент.
+     * @param {number} b - Второй аргумент.
+     * @returns {number} Результат произведения.
+     */
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    /**
+     * Вычисляет частное от деления первого аргумента на второй.
+     * @param {number} a - Делимое.
+     * @param {number} b - Делитель.
+     * @returns {number} - Частное.
+     */
+    function divide(a, b) {
+      return a / b;
+    }
   </script>
 </body>
 

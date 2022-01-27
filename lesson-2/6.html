@@ -27,12 +27,32 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
   <script>
     "use strict";
 
+    /**
+     * Возвращает склонение слова для соответствующего числительного. 
+     * @param {number} count - Числительное.
+     * @param {string} one - Форма слова для числительного один/одна/одно.
+     * @param {string} two - Форма слова для числительного два/две.
+     * @param {string} five - Форма слова для числительного пять.
+     * @returns {string} Склонение слова в зависимости от числительного.
+     */
     function declinationOfNumber(count, one, two, five) {
+      const remainder_hundred = Math.abs(count) % 100;
+      const remainder_ten = remainder_hundred % 10;
 
+      if (remainder_hundred >= 5 && remainder_hundred <= 20) {
+        return five;
+      }
+
+      if (remainder_ten > 1 && remainder_ten < 5) {
+        return two;
+      } else if (remainder_ten === 1) {
+        return one;
+      }
+      return five;
     }
 
     // Число яблок, можно пробовать поставить свое целое, положительное число.
-    const applesNumber = 5;
+    const applesNumber = 12302;
     // Получаем от функции одно из слов "яблоко", "яблока" или "яблок".
     const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
     // Выводим корректную строку, например:

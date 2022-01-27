@@ -23,7 +23,28 @@
   <script>
     "use strict";
 
-    // Здесь пишем решение, данный комментарий необходимо стереть.
+    let a = prompt("Введите значение переменной a:");
+    while (Number.isNaN(Number(a)) || a === '') {
+      a = prompt("Указано неверное значение! Повторите ввод!\n" +
+        "Введите значение переменной a:");
+    }
+
+    let b = prompt("Введите значение переменной b:");
+    while (Number.isNaN(Number(b)) || b === '') {
+      b = prompt("Указано неверное значение! Повторите ввод!\n" +
+        "Введите значение переменной a:");
+    }
+
+    a = Number(a);
+    b = Number(b);
+
+    if (a > 0 && b > 0) {
+      console.log(a - b);
+    } else if (a < 0 && b < 0) {
+      console.log(a * b);
+    } else if (a * b < 0) {
+      console.log(a + b);
+    }
   </script>
 </body>
 
