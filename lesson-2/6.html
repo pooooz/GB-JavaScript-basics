@@ -36,16 +36,16 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
      * @returns {string} Склонение слова в зависимости от числительного.
      */
     function declinationOfNumber(count, one, two, five) {
-      const remainder_hundred = Math.abs(count) % 100;
-      const remainder_ten = remainder_hundred % 10;
+      const remainderHundred = Math.abs(count) % 100;
+      const remainderTen = remainderHundred % 10;
 
-      if (remainder_hundred >= 5 && remainder_hundred <= 20) {
+      if (remainderHundred >= 5 && remainderHundred <= 20) {
         return five;
       }
 
-      if (remainder_ten > 1 && remainder_ten < 5) {
+      if (remainderTen > 1 && remainderTen < 5) {
         return two;
-      } else if (remainder_ten === 1) {
+      } else if (remainderTen === 1) {
         return one;
       }
       return five;

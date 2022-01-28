@@ -34,6 +34,15 @@ Infinity делать не нужно, однако, в случае если б
   <script>
     "use strict";
 
+    /**
+     * Вычисляет результат сложения двух чисел.
+     * @param {number} arg1 - Первый операнд.
+     * @param {number} arg2 - Второй операнд.
+     * @param {string} operation - Вид операции 
+     * (возможные операции: "+", "-", "*", "/")
+     * @returns {number} Результат выбранной операции, возвращает NaN, если 
+     * введены некорректные значения.
+     */
     function mathOperation(arg1, arg2, operation) {
       switch (operation) {
         case "+":

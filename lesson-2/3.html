@@ -35,15 +35,15 @@
         "Введите значение переменной a:");
     }
 
-    a = Number(a);
-    b = Number(b);
+    const numA = Number(a);
+    const numB = Number(b);
 
-    if (a > 0 && b > 0) {
-      console.log(a - b);
-    } else if (a < 0 && b < 0) {
-      console.log(a * b);
-    } else if (a * b < 0) {
-      console.log(a + b);
+    if (numA > 0 && numB > 0) {
+      console.log(numA - numB);
+    } else if (numA < 0 && numB < 0) {
+      console.log(numA * numB);
+    } else if (numA * numB < 0) {
+      console.log(numA + numB);
     }
   </script>
 </body>
