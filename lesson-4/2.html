@@ -52,7 +52,129 @@
   <script>
     "use strict";
 
-    // Здесь пишем решение, данный комментарий необходимо стереть.
+    // Функция для приостановки выполнения программы
+    function sleep(milliseconds) {
+      const date = Date.now();
+      let currentDate = null;
+      do {
+        currentDate = Date.now();
+      } while (currentDate - date < milliseconds);
+    }
+
+    // ES5 стиль
+    function PostES5(authorName, postText) {
+      this.authorName = authorName;
+      this.postText = postText;
+      this.lastUpdated = new Date;
+    }
+
+    PostES5.prototype.edit = function (newPostText) {
+      this.postText = newPostText;
+      this.lastUpdated = new Date;
+    }
+
+    const postES5 = new PostES5("Дмитрий", "Всем привет!!!");
+    console.log(`Автор поста: ${postES5.authorName}\n` +
+      `Текст поста: ${postES5.postText}\n` +
+      `Время последнего изменения: ${postES5.lastUpdated.toLocaleTimeString()}`
+    );
+    // Изменим пост через 2 секунды, чтобы убедиться в работоспособности edit()
+    sleep(2000);
+    postES5.edit("И ещё раз привет!!!")
+    console.log(`Автор поста: ${postES5.authorName}\n` +
+      `Текст поста: ${postES5.postText}\n` +
+      `Время последнего изменения: ${postES5.lastUpdated.toLocaleTimeString()}`
+    )
+
+    // ---
+
+    function AttachedPostES5(authorName, postText) {
+      PostES5.call(this, authorName, postText);
+      this.highlighted = false;
+    }
+
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      this.highlighted = true;
+      this.lastUpdated = new Date;
+    }
+
+    console.log("---");
+    const attachedPostES5 = new AttachedPostES5("Дмитрий", "Ещё не закреплён");
+    console.log(`Автор поста: ${attachedPostES5.authorName}\n` +
+      `Текст поста: ${attachedPostES5.postText}\n` +
+      `Время последнего изменения: ${attachedPostES5.lastUpdated.toLocaleTimeString()}\n` +
+      `Закреплён: ${attachedPostES5.highlighted}`
+    );
+    // Закрепим ещё через 2 секунды
+    sleep(2000);
+    attachedPostES5.edit("Уже закреплён");
+    attachedPostES5.makeTextHighlighted();
+    console.log(`Автор поста: ${attachedPostES5.authorName}\n` +
+      `Текст поста: ${attachedPostES5.postText}\n` +
+      `Время последнего изменения: ${attachedPostES5.lastUpdated.toLocaleTimeString()}\n` +
+      `Закреплён: ${attachedPostES5.highlighted}`
+    );
+
+    // ES6 стиль
+    class PostES6 {
+      constructor(authorName, postText) {
+        this.authorName = authorName;
+        this.postText = postText;
+        this.lastUpdated = new Date;
+      }
+
+      edit(newPostText) {
+        this.postText = newPostText;
+        this.lastUpdated = new Date;
+      }
+    }
+
+    console.log("--- (ES6 стиль)")
+    const postES6 = new PostES6("Дмитрий", "А это пост в новом стиле");
+    console.log(`Автор поста: ${postES6.authorName}\n` +
+      `Текст поста: ${postES6.postText}\n` +
+      `Время последнего изменения: ${postES6.lastUpdated.toLocaleTimeString()}`
+    );
+    // И ещё подождём 2 секунды
+    sleep(2000);
+    postES6.edit("Пост в новом стиле спустя время")
+    console.log(`Автор поста: ${postES6.authorName}\n` +
+      `Текст поста: ${postES6.postText}\n` +
+      `Время последнего изменения: ${postES6.lastUpdated.toLocaleTimeString()}`
+    )
+
+    class AttachedPostES6 extends PostES6 {
+      constructor(authorName, postText) {
+        super(authorName, postText);
+      }
+
+      highlighted = false;
+
+      makeTextHighlighted() {
+        this.highlighted = true;
+        this.lastUpdated = new Date;
+      }
+    }
+
+    console.log("---");
+    const attachedPostES6 = new AttachedPostES6("Дмитрий", "Ещё не закреплён");
+    console.log(`Автор поста: ${attachedPostES6.authorName}\n` +
+      `Текст поста: ${attachedPostES6.postText}\n` +
+      `Время последнего изменения: ${attachedPostES6.lastUpdated.toLocaleTimeString()}\n` +
+      `Закреплён: ${attachedPostES6.highlighted}`
+    );
+    // Снова подождём 2 секунды
+    sleep(2000);
+    attachedPostES6.edit("Уже закреплён");
+    attachedPostES6.makeTextHighlighted();
+    console.log(`Автор поста: ${attachedPostES6.authorName}\n` +
+      `Текст поста: ${attachedPostES6.postText}\n` +
+      `Время последнего изменения: ${attachedPostES6.lastUpdated.toLocaleTimeString()}\n` +
+      `Закреплён: ${attachedPostES6.highlighted}`
+    );
   </script>
 </body>
 
