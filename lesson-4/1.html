@@ -22,7 +22,60 @@
   <script>
     "use strict";
 
-    // Здесь пишем решение, данный комментарий необходимо стереть.
+    // ES5 стиль
+    function ProductES5(name, cost) {
+      this.name = name;
+      this.cost = cost;
+    }
+
+    ProductES5.prototype.reduceCostBy25 = function () {
+      this.cost *= 0.75;
+    }
+
+    const productES5 = new ProductES5("Пылесос", 3000);
+    console.log(`Название продукта: ${productES5.name}\n` +
+      `Цена продукта: ${productES5.cost}`);
+    productES5.reduceCostBy25();
+    console.log(`Новая цена продукта "${productES5.name}": ${productES5.cost}`);
+
+    // ES5 стиль
+    class ProductES6 {
+      constructor(name, cost) {
+        this.name = name;
+        this.cost = cost;
+      }
+
+      get name() {
+        return this._name;
+      }
+
+      get cost() {
+        return this._cost;
+      }
+
+      set name(value) {
+        if (typeof value !== "string") {
+          throw new TypeError("Название должно являться строкой");
+        } else if (value.length === 0) {
+          throw new Error("Название слишком короткое!");
+        }
+        this._name = value;
+      }
+
+      set cost(value) {
+        this._cost = value;
+      }
+
+      reduceCostBy25() {
+        this.cost *= 0.75;
+      }
+    }
+
+    const productES6 = new ProductES6("Компьютерная мышь", 2000);
+    console.log(`Название продукта: ${productES6.name}\n` +
+      `Цена продукта: ${productES6.cost}`);
+    productES6.reduceCostBy25();
+    console.log(`Новая цена продукта "${productES6.name}": ${productES6.cost}`);
   </script>
 </body>
 

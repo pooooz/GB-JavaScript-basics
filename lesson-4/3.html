@@ -33,7 +33,21 @@
   <script>
     "use strict";
 
-    // Здесь пишем решение, данный комментарий необходимо стереть.
+    function getDigitsOfNumber(number) {
+      if (!Number.isInteger(number) || number < 0 || number > 999) {
+        console.error("Некорректный ввод! Аргумент должен быть целым " +
+          "положительным числом в диапазоне [0, 1000)!");
+        return {};
+      }
+
+      return {
+        units: number % 10,
+        dozens: Math.trunc(number / 10) % 10,
+        hundreds: Math.trunc(number / 100) % 10,
+      };
+    }
+
+    console.log(getDigitsOfNumber(999));
   </script>
 </body>
 
