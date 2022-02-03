@@ -52,6 +52,7 @@
   <script>
     "use strict";
 
+    // ******** Лучший вариант находится в ветке alternative ********
     // Функция для приостановки выполнения программы
     function sleep(milliseconds) {
       const date = Date.now();
@@ -65,12 +66,12 @@
     function PostES5(authorName, postText) {
       this.authorName = authorName;
       this.postText = postText;
-      this.lastUpdated = new Date;
+      this.lastUpdated = new Date();
     }
 
     PostES5.prototype.edit = function (newPostText) {
       this.postText = newPostText;
-      this.lastUpdated = new Date;
+      this.lastUpdated = new Date();
     }
 
     const postES5 = new PostES5("Дмитрий", "Всем привет!!!");
@@ -98,7 +99,7 @@
 
     AttachedPostES5.prototype.makeTextHighlighted = function () {
       this.highlighted = true;
-      this.lastUpdated = new Date;
+      this.lastUpdated = new Date();
     }
 
     console.log("---");
@@ -123,12 +124,12 @@
       constructor(authorName, postText) {
         this.authorName = authorName;
         this.postText = postText;
-        this.lastUpdated = new Date;
+        this.lastUpdated = new Date();
       }
 
       edit(newPostText) {
         this.postText = newPostText;
-        this.lastUpdated = new Date;
+        this.lastUpdated = new Date();
       }
     }
 
@@ -147,15 +148,11 @@
     )
 
     class AttachedPostES6 extends PostES6 {
-      constructor(authorName, postText) {
-        super(authorName, postText);
-      }
-
       highlighted = false;
 
       makeTextHighlighted() {
         this.highlighted = true;
-        this.lastUpdated = new Date;
+        this.lastUpdated = new Date();
       }
     }
 
