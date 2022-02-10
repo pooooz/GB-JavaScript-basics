@@ -52,7 +52,7 @@
     2. Установите всем элементам с классом "product" внешний отступ справа 50px.
      */
     document.querySelectorAll(".product").forEach(element => {
-      element.style.margin = "0 50px 0 0";
+      element.style.marginRight = "50px";
     });
 
     /*
@@ -79,7 +79,6 @@
     productClone.querySelector("img").src = "https://picsum.photos/id/1080/200/300";
     productClone.querySelector(".productName").innerText = "Товар 4";
     document.querySelector(".product:last-of-type").replaceWith(productClone);
-    console.log(productClone);
 
     /*
     5. По истечению 2 секунд с момента открытия страницы первый товар должен быть
