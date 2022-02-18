@@ -11,8 +11,8 @@ function getTotalItemsCount() {
 
 function getTotalItemsPrice() {
   return Object
-  .values(basket)
-  .reduce((acc, product) => acc + product.price * product.count, 0);
+    .values(basket)
+    .reduce((acc, product) => acc + product.price * product.count, 0);
 }
 
 function renderNewProduct(productId) {
@@ -34,7 +34,6 @@ function renderNewProduct(productId) {
 function renderProduct(productId) {
   const basketRowElement = basketElement
     .querySelector(`.basketRow[data-id="${productId}"]`);
-  console.log(basketRowElement);
 
   if (!basketRowElement) {
     renderNewProduct(productId);
@@ -64,7 +63,7 @@ document.querySelector(".cartIcon").addEventListener("click", () => {
   basketElement.classList.toggle("hidden");
 });
 
-const basket = new Object();
+const basket = {};
 
 document.querySelector(".featuredItems").addEventListener("click", (event) => {
   if(!event.target.closest(".addToCart")) {
@@ -77,8 +76,5 @@ document.querySelector(".featuredItems").addEventListener("click", (event) => {
   const name = featuredItemEl.dataset.name;
   const price = Number(featuredItemEl.dataset.price);
 
-  console.log(`id: ${id}, name: ${name}, price: ${price}`);
   addToCart(id, name, price);
-  
-  console.log(basket);
 });
